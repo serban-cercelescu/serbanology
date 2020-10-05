@@ -1,0 +1,111 @@
+$link_color: #755;
+
+@font-face {
+    font-family: "Watson";
+    src: url("./fonts/watson.ttf");
+}
+
+@font-face {
+    font-family: "Enriqueta";
+    src: url("./fonts/enriqueta.ttf");
+}
+
+div { /*Biggest hack I've seen in my life*/
+    font-family: Enriqueta;
+    font-size: 14px;
+}
+
+a {
+    color: $link_color;
+    cursor: pointer;
+}
+
+p {
+    font-size: 14px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#wrapper {
+    border-left: solid thin #ccc;
+    border-right: solid thin #ccc;
+    width: calc(100vw - 10px);
+    max-width: 1200px!important;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    #title {
+        font-family: Watson;
+        color: #533;
+    }
+
+    #navbar {
+        width: 1000px;
+        max-width: calc(100% - 10px) !important;
+        display: flex;
+        justify-content: space-around;
+        border-top: solid thin #ccc;
+        padding-top: 10px;
+
+    }
+
+    .Navitem {
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #main #mainContent {
+        width: calc(100% - 10px);
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    #main #mainContent {
+        width: calc(100% - 100px);
+    }
+}
+
+
+#main {
+    width: 100%;
+    border-left: solid thin #eee;
+    #mainContent {
+        margin: auto;
+        margin-top: 50px;
+    }
+}
+
+#footer {
+    width: 1000px;
+    max-width: calc(100% - 10px) !important;
+    text-align: center;
+    margin-top: auto;
+    align-self: center;
+    font-size: 14px;
+    color: $link_color;
+    border-top: solid thin #ccc;
+}
+
+.ArtTitle {
+    text-decoration: none;
+    color: black;
+}
