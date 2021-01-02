@@ -1,25 +1,36 @@
 import React from 'react';
 import Card from '../Components/Card'
-import me from './me.jpg'
 
 const About = () =>
 (<>
-    <Card float="right" pic={me} width="240px">
-        Me, doing some more than necessary reading.
+    <Card float="right" pic="me.jpg" width="240px">
+        Me, definitely not procrastinating.
     </Card>
     <p>
-        My name is Şerban Cercelescu (hence the website name). I'm 19, living in Bucharest, but soon moving to Oxford to continue my studies. I'm quite passionate about maths, computer science, philosophy, anthropology (and human studies in general) and of course, Age of Empires 2. I created this website quite a while ago (October 2018) in order to share some of the cool stuff I come across in my studies. The website was created with the intent of having the "look and feel" of a textbook, any suggestions are warmly welcome :)
+        My name is Șerban Cercelescu (hence the website name), I'm from Bucharest but mainly spending my time in Oxford for univ. I'm quite passionate about maths, computer science and philosophy. My interests in these fields change quite often, but here's a short list of the things I'm really excited about:
     </p>
-
+    <ul>
+        <li>Statistics</li>
+        <li>Complexity theory</li>
+        <li>Geometric group theory</li>
+        <li>Coding and information theory</li>
+        <li>Category theory (obviously)</li>
+    </ul>
+    <p>
+        I've created this website quite a while ago (October 2018) in order to share some of the cool stuff I come across. The website was created with the intention of having the "look and feel" of a textbook, any suggestions are warmly welcome.
+    </p>
     <br/>
     <div>
         <h3>Contact</h3>
         <ul>
         <li>email: warewaanai@gmail.com</li>
         <li>codeforces: <b><a href="http://codeforces.com/profile/Anai" style={{color: "#FF8C00", textDecoration: "none"}}>Anai</a></b></li>
-        <li>atcoder: <b><a href="https://beta.atcoder.jp/users/anai" style={{color: "#0000FF", textDecoration: "none"}}>Anai</a></b></li>
         </ul>
     </div>
+
+    <Card float="center" pic="alsome.jpg" width="400px">
+        Me hanging out with <a href="https://codeforces.com/profile/Andrei1998">"Mr. 98"</a>
+    </Card>
 
     <br/>
     <br/>

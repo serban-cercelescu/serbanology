@@ -5,14 +5,7 @@ import python from 'highlight.js/lib/languages/python';
 
 import 'highlight.js/styles/github.css';
 
-hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('python', python);
-hljs.configure({
-    languages: ["javascript", "python"],
-    classPrefix: "",
-});
-hljs.initHighlighting();
-console.log(hljs.listLanguages());
 
 class Highlight extends Component {
     constructor(props) {
@@ -30,23 +23,30 @@ class Highlight extends Component {
         }
     }
 
+    highlight = () => {
+        if (this.nodeRef) {
+            const nodes = this.nodeRef.current.querySelectorAll('pre');
+            nodes.forEach((node) => {
+                hljs.highlightBlock(node);
+            });
+        }
+    }
+
     componentDidMount() {
-        fetch(this.props.source)
+        fetch(`http://${window.HOST}/cdn/` + this.props.source)
         .then(res => res.text())
-        .then(data => this.setState({content: data}))
+        .then(data => this.setState({content: data}));
     }
     
     componentDidUpdate() {
-        hljs.highlightBlock(this.nodeRef.current);
+        this.highlight();
     }
 
     render() {
         return (
-            <pre ref={this.nodeRef}>
-                <code className={this.state.langClass}>
-                    {this.state.content}
-                </code>
-            </pre>
+            <div ref={this.nodeRef}>
+                <pre>{this.state.content}</pre>
+            </div>
         );
     }
 }
