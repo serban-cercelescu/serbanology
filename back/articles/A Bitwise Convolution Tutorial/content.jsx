@@ -84,6 +84,7 @@
         Where '<$> \otimes </$>' denotes the <a href="https://en.wikipedia.org/wiki/Kronecker_product">Kronecker product</a>, a key operation troughout the whole of this article and you must know at least its definition to grasp the remainder of this article. In this particular case, you may interpret it as <$>M_\text{step}</$> is applied on all the buckets (i.e. the Kroneker product distributes the <$>M_\text{step}</$> multiplication on each of the buckets). The proof of the equivalence of this decomposition to <$>V_n</$> is based on induction and quite beyond the scope of this article.        
     </li>
 </ul>
+<Highlight language={['python']} source={`A Bitwise Convolution Tutorial/fft.cpp`}/>
 <h3>The Bitwise Convolutions Matrices</h3>
 <p>
     Now that there we're done with the <i>short</i> "classical FFT" recap, we may dive into XOR, AND and OR covolutions, and there is good news! They are quite easier to understand, don't require complex numbers or roots of unity in some field, run much faster and are shorter to code. All of that matrix decomposition maths was there to point out the fact that most convolution algorithms (but not gcd convolution for example) are based on such matrix decompositions and present a familiar example, even though it is one of the most complex ones from this perspective.<br/><br/>
@@ -260,6 +261,9 @@
 <p>
     And in case you want a XOR convolution, just set <$>w, x, y, z</$> to the values from the specific XOR transformation matrix.
 </p>
+
+<Highlight language={['python']} source={`A Bitwise Convolution Tutorial/walsh_hadamard.cpp`}/>
+
 <h3>Some Pen and Paper Exercises</h3>
 <ul>
     <li>Find <$>T_2</$> for OR and AND transforms</li>
@@ -275,13 +279,9 @@
     </$$>
     where <$>\text{a}</$> is the number of elements taken so far and <$>\text{b}</$> is their current XOR sum. And the dp is initialized with <$>\text{dp[1][i]}=1, \forall i \in [0..k] \text{ and } 0 \text{ in rest}</$>.<br/>
     Let's define <$>K=[1, 1, 1, ..., 1, 0, 0, ..., 0]</$> (the first k + 1 values are <$>1</$> and the rest are <$>0</$>, the array's length being the smallest power of <$>2</$> greater or equal to <$>k</$>). Now we can write the recurrence as
-    <$$>
-        \text{dp[a]} = \text{dp[a-1]}\$K \\
-        \text{but} \\
-        \text{dp[1]}=K \\
-        \text{so} \\
-        \text{dp[a]} = K\$K\$K\$ \dots \$K \text{ (a times)}
-    </$$>
+    <$$> \text{dp[a]} = \text{dp[a-1]}\$K \\ </$$>
+    <$$> \text{ and } \text{dp[1]}=K \\</$$>
+    <$$> \text{ therefore } \text{dp[a]} = K\$K\$K\$ \dots \$K \text{ (a times)} </$$>
     So you just have to use the XOR transform on <$>K</$> convolute it with itself <$>n</$> times and output the sum of the values of the non-zero positions of the resulting vector.<br/>
     <a href="https://csacademy.com/code/mBPsczRP/">Here</a> is my source code.
 </p>

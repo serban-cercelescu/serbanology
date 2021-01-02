@@ -24,7 +24,7 @@
     Now we basically have to find a way of uniquely labelling a DAG, preferably respecting the topological order (i.e. if there are two nodes labelled <$>x,y</$> where <$>x < y</$> there may not be any path from <$>y</$> to <$>x</$> in the DAG. Yes, I know this feels backwards but we will append to our dp from the "sink" up) so that we may approach a natural DP approach of the form <$>\text{dp[\#nodes][some additional information]}</$> where we could append nodes in order of their label.<br/>
     Let's look at the ubergraphs with four nodes to get an idea of such a labelling: <br/><br/>
 </p>
-<Card float="center" pic={`http://${HOST}/cdn/An%20Uberproblem/graph.jpg`} width="480px"/>
+<Card float="center" pic="An%20Uberproblem/graph.jpg" width="480px"/>
 <p>
     Now call me a madman, but I think it's a good idea to assign the node <$>x</$> with <$>g(x)=\emptyset</$> the label one and we will denote this with a function <$>\text{label}</$>, where <$>\text{label}(x):=1</$>. Notice that there may only be one function with out-degree equal to zero, so all nodes can reach this node.
     Also, notice that all the ubergraphs in the picture have a node pointing only to the sink node (the one with out-degree zero). The reason behind this is just that there is only one sink and the graph is a DAG. It would also not be an absurd idea to label this node <$>x</$> with two: <$>g(x)=\{1\} \implies label(x):=2</$>.<br/>
@@ -32,7 +32,7 @@
     There is obviously no direct answer, as so far the definition of what we are looking for is <i>"something that feels useful"</i>. Now is the moment of thinking of a way of labelling the nodes in a way that may lead to a DP approach. The way I did this was just write down some random criteria, try elaborating from each and stop when I found something promising; and the one I've found is the following: define the "weight" of a node <$>x</$> as <$>w(x)=\sum_{v \in g(x)} 2^{\text{label}(v)} </$> and just give the smaller label to the one with the smaller weight. Keep in mind this weight function, as it will be a crucial part of our DP.<br/>
     Let's now wrap it all up and see some pseudocode that will label an unlabelled ubergraph using the criteria we've stated before.
 </p>
-<Highlight language={['python']} source={`http://${HOST}/cdn/An%20Uberproblem/maincode.py`}/>
+<Highlight language={['python']} source="An%20Uberproblem/maincode.py"/>
 <p>
     Now the fact that this procedure works is just proof that our labelling method is a valid one and uniquely determines a labelling for an unlabelled ubergraph (ahem! labelling, labelling labelling labelling!). Now let's look at the proprieties of this labelling:<br/>
     <ul>

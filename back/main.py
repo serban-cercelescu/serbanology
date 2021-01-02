@@ -52,3 +52,7 @@ def meta_article():
             return f.read(), 200
     except:
         return "Not found", 404
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('build/index.html')

@@ -8,7 +8,7 @@
     The scope of this article is presenting a very useful DP optimization technique, introduced in the problem <a href="https://oj.uz/problem/view/IOI16_aliens">Aliens</a> at IOI 2016.
     The techinque is used to reduce dimensions in particular DP configurations, by exploiting the convex nature of some cost functions.
     We will introduce the technique by starting with a simpler DP problem, show the optimization from <$>O(N^2)</$> to <$>O(Nlog\text{VAL})</$>, then reveal the full solution of <a href="https://oj.uz/problem/view/IOI16_aliens">the original problem</a>.
-    Apparently, the official name of this optimization technique is "parameter search" and the Chinese call it "wqs binary search".
+    Apparently, the official name of this optimization technique is "parameter search" and the Chinese call it "bqs binary search".
 </p>
 <h3>A problem example</h3>
 <p>
@@ -38,7 +38,7 @@
     These recurrences are implementable in <$>O(N)</$>, but I won't go into detail, as the target audience of this article is supposed to be able to solve this on its own.<br/>
     The pseudocode of the solution would look like this:
 </p>
-<Highlight language={['python']} source={`http://${HOST}/cdn/The%20Trick%20From%20Aliens/maincode.py`}/>
+<Highlight language={['python']} source={`The%20Trick%20From%20Aliens/maincode.py`}/>
 
 <h3>Proof and Formal Requirements</h3>
 <p>
@@ -74,7 +74,7 @@
 </p>
 
 <h3>Integral Lambda Search</h3>
-    <Card width="400px" float="right" pic="http://${HOST}/cdn/The Trick From Aliens/convex_aliens.jpg"/>
+    <Card width="400px" float="right" pic="The Trick From Aliens/convex_aliens.jpg"/>
 <p>
     You might have noticed that we are binary searching a floating point <$>\lambda</$>, not an integral valued one. The reason is that if the prerequisites of applying the optimization are satisfied, then we have proved that a <$>\lambda</$> exists, not that it would have an integral value. The thing is, in most DP problems, the optimization works just as well with integers. It's just not that obvious to prove why.<br/>
     Let's consider a convex sequence of <$>N</$> elements, call it <$>V_{1 \dots N}</$>. Now let's consider a set of points <$> P = \{ p_i=(i, v_i) | i \in [1 \dots N] \} </$>, once drawn, together with the line segments between consecutive points (which will bear great importance in the following steps), you will see a convex lower/upper hull. A key observation now is that when looking at our convex sequence geometrically, the "peak" of the sequence will be the unique point that has segments with different signs of the slope to its left and to its right (with the exception the edge cases where the optimum is the first or last element of the sequence). In our drawn example, that peak is the 6th point, with a segment with negative slope value on its left and positive on its right. Another useful observation is that if we have two lines <$>a_1 x + b_1</$> and <$>a_2 x + b_2</$>, adding a constant value <$>\lambda</$> to both their slopes doesn't change the x coordinate
