@@ -10,11 +10,11 @@ const About = () =>
         My name is Șerban Cercelescu (hence the website name), I'm from Bucharest but mainly spending my time in Oxford for univ. I'm quite passionate about maths, computer science and philosophy. My interests in these fields change quite often, but here's a short list of the things I'm really excited about:
     </p>
     <ul>
-        <li>Statistics</li>
         <li>Complexity theory</li>
-        <li>Geometric group theory</li>
         <li>Coding and information theory</li>
-        <li>Category theory (obviously)</li>
+        <li>Quantum Computing</li>
+        <li>Algebra (very general, yes)</li>
+        <li>Jessica Burge</li>
     </ul>
     <p>
         I've created this website quite a while ago (October 2018) in order to share some of the cool stuff I come across. The website was created with the intention of having the "look and feel" of a textbook, any suggestions are warmly welcome.
