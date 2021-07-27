@@ -39,7 +39,7 @@ Ever since kindergarten, I have been absolutely obsessed with technical stuff. M
 </p>
 <p>
     As much as I would want to just extend my middle finger towards the people showing this attitude towards "technical talk" in social contexts and think nothing more
-    of them than Neanderthals, it would go against most of my beliefs, as it isn't that hard to see what's the reasoning behind their actions. While I cannot say for sure,
+    of them than assholes, it would go against most of my beliefs, as it isn't that hard to see what's the reasoning behind their actions. While I cannot say for sure,
     my intuition tells me that that reasoning is based on a great divergence in viewpoints. In these past two years, I have also learnt that for most people, Maths, CS,
     Physics and all these academic topics are more of a means to achieve a goal rather than the goal itself. I think it's pretty safe to say that even in the academic
     environment, people who see these better understanding of these topics as the end goal form a minority, and as with any minority there are things you cannot easily
@@ -53,7 +53,7 @@ Ever since kindergarten, I have been absolutely obsessed with technical stuff. M
     about their thing in a monologue when no one wants to listen, but that if someone wants to listen, what they enjoy discussing is not to be judged by the ones around.
 </p>
 <p>
-    Thus, to end this long coming article:
+    Thus, to end this long time coming article:
 </p>
 <p>
     If you are some kid out there who is really passionate about something and the ones around tell you "no talking about maths during dinner", trust me that there are others
