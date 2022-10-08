@@ -3,11 +3,11 @@ import json
 import time
 import os
 
-from flask import Flask, request, Response
+from flask import Flask, request, Response, send_from_directory
 from ArticleParser import tex_tag_parser
 from flask_cors import CORS
 
-app = Flask(__name__, static_url_path='/cdn/')
+app = Flask(__name__)
 CORS(app)
 
 # Article API
@@ -55,4 +55,5 @@ def meta_article():
 
 @app.errorhandler(404)
 def not_found(e):
-    return app.send_static_file('build/index.html')
+    print(os.getcwd())
+    return send_from_directory('build', 'index.html')
