@@ -33,7 +33,7 @@ class Highlight extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://${window.HOST}/cdn/` + this.props.source)
+        fetch(`/static/` + this.props.source)
         .then(res => res.text())
         .then(data => this.setState({content: data}));
     }
