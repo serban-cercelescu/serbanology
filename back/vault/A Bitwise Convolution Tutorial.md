@@ -70,7 +70,7 @@ M_\text{step} =
 \large{
 , \omega=e^{\frac{2\pi i}{\text{step}}} }
 $$
-Multiplying $M_\text{step}$ with $S$ takes $O(\text{step})$ time, because the matrix is sparse. This multiplication is found in the <code class="language-cpp">for (int pos = 0; ...)</code> loop. Now as you might expect, FFT basically decomposes $V_n$ into a product of these matrices and a permutation matrix. So
+Multiplying $M_\text{step}$ with $S$ takes $O(\text{step})$ time, because the matrix is sparse. This multiplication is found in the `for (int pos = 0; ...)` loop. Now as you might expect, FFT basically decomposes $V_n$ into a product of these matrices and a permutation matrix. So
 $$
 V_n = (I_2^{\otimes (\log{n})-1} \otimes M_1) (I_2^{\otimes (\log{n})-2} \otimes M_2) \dots (I_2^{\otimes 1} \otimes M_\frac{n}{4}) M_\frac{n}{2} (\text{"The permutation matrix"})
 $$
@@ -89,7 +89,7 @@ int rev(int x, int l) { // mirror the bits (e.g. 01011 -> 11010)
 	return res;
 }
  
-void fft(vector&lt;Complex&gt; &pol, int inverse = 1) {
+void fft(vector<Complex> &pol, int inverse = 1) {
     int n = size(pol);
 	for (int i = 0; i < n; ++i)
 		if (i < rev(i, log2[n]))
@@ -317,7 +317,7 @@ $$
 And in case you want a XOR convolution, just set $w, x, y, z$ to the values from the specific XOR transformation matrix.
 
 ```cpp
-void transform(vector&lt;double&gt; &pol) {
+void transform(vector<double> &pol) {
     int n = size(pol);
 	
 	for (int step = 1; step < n; step*= 2) { 
@@ -333,7 +333,7 @@ void transform(vector&lt;double&gt; &pol) {
     }
 }
 
-void inverse_transform(vector&lt;double&gt; &pol) {
+void inverse_transform(vector<double> &pol) {
 	const double determinant = w * z - x * y;
     int n = size(pol);
 
@@ -366,10 +366,14 @@ $$
 $$
 where $\text{a}$ is the number of elements taken so far and $\text{b}$ is their current XOR sum. And the dp is initialized with $\text{dp[1][i]}=1, \forall i \in [0..k] \text{ and } 0 \text{ in rest}$.
 Let's define $K=[1, 1, 1, ..., 1, 0, 0, ..., 0]$ (the first k + 1 values are $1$ and the rest are $0$, the array's length being the smallest power of $2$ greater or equal to $k$). Now we can write the recurrence as
-$$ \text{dp[a]} = \text{dp[a-1]}\$K \\ $$
-$$ \text{ and } \text{dp[1]}=K \\
 $$
-$$ \text{ therefore } \text{dp[a]} = K\$K\$K\$ \dots \$K \text{ (a times)}
+	\text{dp[a]} = \text{dp[a-1]}\$K
+$$
+$$
+	\text{ and } \text{dp[1]}=K
+$$
+$$
+	\text{ therefore } \text{dp[a]} = K\$K\$K\$ \dots \$K \text{ (a times)}
 $$
 So you just have to use the XOR transform on $K$ convolute it with itself $n$ times and output the sum of the values of the non-zero positions of the resulting vector. [Here](https://csacademy.com/code/mBPsczRP/) is my source code.
 
