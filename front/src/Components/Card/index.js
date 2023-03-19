@@ -5,10 +5,11 @@ const Card = (props) => {
     return (
         <div
             style={{
+                maxWidth: '400px',
                 width: props.width,
                 height: props.height,
-                float: props.float && props.float !== "center" ? props.float : null,
-                margin: props.float === "center" ? "auto" : "15px",
+                float: props.float ? props.float : 'right',
+                margin: props.center ? "auto" : "15px",
                 padding: "5px",
                 borderRadius: "7px",
                 boxShadow: "3px 5px 5px 5px #999"

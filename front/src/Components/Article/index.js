@@ -1,54 +1,87 @@
 import React, {useState, useEffect} from 'react'
-import JsxParser from 'react-jsx-parser'
+import { useParams } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
-import Tex2SVG, { MathJaxProvider } from "react-hook-mathjax";
-import Card from '../Card'
-import Highlight from '../Highlight'
-import {Link} from 'react-router-dom'
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
+import rehypeMathjax from 'rehype-mathjax'
+import remarkWikiLink from 'remark-wiki-link'
+import remarkMdx from 'remark-mdx'
+
+import Card from '../../Components/Card'
+
 
 const Article = (props) => {
     const [content, setContent] = useState(0);
-    const [meta, setMeta] = useState(1);
+    const { article_name } = useParams();
+
 
     useEffect(() => {
-        fetch(`/api/content_article?art=${props.name}`).then(res => res.json()).then(data => {
-            setContent(data.text);
-        });
-        if (meta === 1) {
-            if (!props.meta) {
-                fetch(`/api/meta_article?art=${props.name}`).then(res => res.json()).then(data => {
-                    setMeta(data);
-                });
-            }
-            else
-                setMeta(props.meta);
-        }
-    });
+        fetch(`/api/get_article/${props.page ? props.page : article_name}`)
+        .then(res => {
+          if (res.status === 404)
+            window.location.href = '/vault/404';
+          else
+            return res.json();
+        }).then(data =>
+          setContent({
+              text: data.text,
+              title: props.page ? props.page : article_name
+          })
+        );
+    }, [article_name]);
 
     if (content === 0)
         return null;
 
-    return (<>
-            <div className="ArticleHeader">
-                <div><Link className="ArtTitle" to={`/article/${props.name}`}><h2>{props.name}</h2></Link></div>
-            </div>
-            <MathJaxProvider>
-                <JsxParser
-                    disableKeyGeneration={false}
-                    components={{
-                        Card, // Most Common ones
-                        Link,
-                        Tex2SVG,
-                        Highlight,
-//                        ...meta.components
-                    }}
-                    jsx={`
-                    <div>
-                        ${content}
-                    </div>
-                `}/>
-            </MathJaxProvider>
-    </>);
+    return <>
+        <h1> { content.title } </h1>
+
+        <ReactMarkdown
+            components={{
+                img: (node, ...props) => {
+                    console.log(node);
+                    return <Card pic={node.src} children={node.alt} />;
+                },
+                code: ({ node, inline, className, children, ...props }) => {
+                    const match = /language-(\w+)/.exec(className || "");
+                    return !inline && match ? (
+                      <SyntaxHighlighter
+                        children={String(children).replace(/\n$/, "")}
+                        language={match[1]}
+                        {...props}
+                      />
+                    ) : (
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    );
+                },
+            }}
+
+            remarkPlugins={[
+              [
+                remarkWikiLink,
+                {
+                  pageResolver: (name) => [name],
+                  hrefTemplate: (permalink) => `/vault/${permalink}`
+                }
+              ],
+              remarkGfm,
+              remarkMath,
+              remarkMdx
+            ]}
+            rehypePlugins={[rehypeMathjax]}
+
+        >
+
+          {content.text}
+
+        </ReactMarkdown>
+    </>;
 }
 
 export default Article;

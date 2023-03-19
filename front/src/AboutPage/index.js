@@ -7,13 +7,12 @@ const About = () =>
         Jessica's drawing of me
     </Card>
     <p>
-        My name is Șerban Cercelescu (hence the website name), I live in Oxford and I'm originally from Bucharest. Most of what I do now is maths and theoretical computer science. Here's a list of the stuff that preocupies me most as of October 2022:
+        My name is Șerban Cercelescu (hence the website name), I live in Oxford and I'm originally from Bucharest. Most of what I do now is pure maths. Here's a list of the stuff that preocupies me most as of March 2023:
     </p>
     <ul>
         <li>Jessica Burge</li>
-        <li>Applications of Algebraic Topology in Promise Constraint Satistfaction Problems</li>
-        <li>Complex Analysis</li>
-        <li>Algebraic Number Theory</li>
+        <li>Topology</li>
+        <li>Algebra</li>
     </ul>
     <p>
         I've created this website quite a while ago (October 2018) in order to share some of the cool stuff I come across. The website was created with the intention of having the "look and feel" of a textbook, any suggestions are warmly welcome.
@@ -22,12 +21,12 @@ const About = () =>
     <div>
         <h3>Contact</h3>
         <ul>
-        <li>email: serban-ion (dot) cercelescu (at) exeter (dot) ox (dot) ac (dot) uk</li>
+        <li>email: serban (dot) cercelescu (at) hotmail (dot) com</li>
         <li>codeforces: <b><a href="http://codeforces.com/profile/Anai" style={{color: "#FF8C00", textDecoration: "none"}}>Anai</a></b></li>
         </ul>
     </div>
 
-    <Card float="center" pic="alsome.jpg" width="400px">
+    <Card center float="none" pic="alsome.jpg" width="400px">
         Me hanging out with <a href="https://codeforces.com/profile/Andrei1998">Andrei Constantinescu</a>
     </Card>
 
