@@ -68,7 +68,6 @@ snowballstemmer==2.2.0
 soupsieve==2.4
 Sphinx==4.3.2
 systemd-python==234
-ubuntu-advantage-tools==27.12
 ufw==0.36.1
 unattended-upgrades==0.1
 urllib3==1.26.5
