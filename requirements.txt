@@ -7,10 +7,11 @@ certifi==2020.6.20
 chardet==4.0.0
 click==8.0.0
 colorama==0.4.4
+command-not-found
 cryptography==3.4.8
 dbus-python==1.2.18
 distro==1.7.0
-distro-info===1.1build1
+distro-info
 docopt==0.6.2
 docutils==0.17.1
 feedparser==6.0.8
