@@ -1,6 +1,3 @@
-import functools
-import json
-import time
 import os
 import obsidiantools.api as otools
 
@@ -34,6 +31,21 @@ def content_article(art):
     except:
         with open('./vault/404.md') as f:
             return {"text": f.read()}, 404
+
+@app.route('/api/get_media/<name>')
+def get_media(name):
+    path = "./vault/media/" + name
+    print(path)
+    if not is_safe_path(path):
+        return "forbidden", 403
+    try:
+        return send_from_directory('./vault/media', name)
+    except:
+        with open('./vault/404.md') as f:
+            return {"text": f.read()}, 404
+
+
+
 
 @app.route('/api/get_graph')
 def get_graph():

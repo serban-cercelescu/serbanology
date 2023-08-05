@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Card = (props) => {
-    const src = props.external ? props.pic : `/static/` + props.pic;
+    const src = props.external ? props.pic : `/api/get_media/` + props.pic;
     return (
         <div
             style={{
