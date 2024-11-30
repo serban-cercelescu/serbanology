@@ -7,12 +7,13 @@ const About = () =>
         Jessica's drawing of me
     </Card>
     <p>
-        My name is Șerban Cercelescu (hence the website name), I live in Oxford and I'm originally from Bucharest. Most of what I do now is pure maths. Here's a list of the stuff that preocupies me most as of March 2023:
+        My name is Șerban Cercelescu (hence the website name), I live in Cambridge and I'm originally from Bucharest. Here's a list of the stuff that preocupies me most as of December 2024:
     </p>
     <ul>
         <li>Jessica Burge</li>
         <li>Topology</li>
         <li>Algebra</li>
+        <li>Quantum Error Correction</li>
     </ul>
     <p>
         I've created this website quite a while ago (October 2018) in order to share some of the cool stuff I come across. The website was created with the intention of having the "look and feel" of a textbook, any suggestions are warmly welcome.
@@ -29,14 +30,6 @@ const About = () =>
     <Card center float="none" pic="alsome.jpg" width="400px">
         Me hanging out with <a href="https://codeforces.com/profile/Andrei1998">Andrei Constantinescu</a>
     </Card>
-
-    <br/>
-    <br/>
-    <div style={{textAlign: "center", marginTop: "auto", height: "min-content"}}>
-        <p>
-            <i> What is the cost of lies? It’s not that we will mistake them for the truth. The real danger is that, if we hear enough lies, then we no longer recognize the truth at all. What can we do then? What else is left but to abandon even the hope of truth and content ourselves instead with stories? In these stories, it doesn’t matter who the heroes are. All we want to know is who is to blame. </i>
-        </p>
-    </div>
 </>);
 
 export default About;

@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "chalk": "^5.3.0",
     "highlight.js": "^11.7.0",
     "moment": "^2.29.0",
     "react": "^18.2.0",
@@ -15,7 +16,7 @@
     "react-jsx-parser": "^1.25.1",
     "react-markdown": "^8.0.5",
     "react-router-dom": "^6.9.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-syntax-highlighter": "^15.5.0",
     "rehype-mathjax": "^4.0.2",
     "remark-gfm": "^3.0.1",
@@ -23,7 +24,8 @@
     "remark-mdx": "^2.3.0",
     "remark-wiki-link": "^1.0.4",
     "sass": "^1.26.9",
-    "three-js": "^79.0.0"
+    "three-js": "^79.0.0",
+    "webpack": "^5.96.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,6 +48,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000",
-  "devDependencies": {}
+  "proxy": "http://localhost:5000"
 }
